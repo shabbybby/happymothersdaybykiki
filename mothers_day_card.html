@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Happy Mother's Day</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:linear-gradient(135deg,#fff0f5,#fff8f0,#f5f0ff);display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:Georgia,serif;position:relative;}
+canvas#sc{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;image-rendering:pixelated;}
+@keyframes ap{from{opacity:0;transform:translateY(20px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+@keyframes sw{0%,100%{transform:rotate(-2deg);}50%{transform:rotate(2deg);}}
+@keyframes pu{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.card{position:relative;z-index:1;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border:1px solid rgba(255,180,200,.3);border-radius:24px;padding:48px 52px 44px;max-width:520px;width:90%;text-align:center;box-shadow:0 8px 48px rgba(255,100,150,.12);animation:ap 1s ease forwards;}
+.px{image-rendering:pixelated;image-rendering:crisp-edges;width:220px;height:220px;margin-bottom:24px;animation:sw 4s ease-in-out infinite;transform-origin:bottom center;}
+.gr{font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:#d4687a;margin-bottom:10px;}
+h1{font-size:38px;font-weight:bold;color:#b03060;line-height:1.15;margin-bottom:6px;font-style:italic;}
+.dv{width:60px;height:2px;background:linear-gradient(90deg,transparent,#f0a0b8,transparent);margin:18px auto;}
+.ms{font-style:italic;font-size:17px;color:#6b3a4a;line-height:1.75;margin-bottom:24px;}
+.sg{font-size:13px;letter-spacing:.12em;color:#b07080;font-style:italic;}
+.he{margin-top:18px;font-size:20px;animation:pu 2s ease-in-out infinite;}
+</style></head><body>
+<canvas id="sc"></canvas>
+<div class="card">
+  <canvas id="flowers" width="29" height="29" class="px"></canvas>
+  
+  <h1>Happy Mother's Day</h1>
+  <div class="dv"></div>
+  <p class="ms">Auch wenn ich heute nicht da sein kann, habe ich dir diese Karte programmiert - ich denke an dich und habe dich dolle lieb!</p>
+  <p class="sg">— große Umarmung, deine Kiki &lt;3</p>
+  <div class="he">🌸 &nbsp;♡&nbsp; 🌸</div>
+</div>
+<script>
+// Draw your pixel flowers
+const fc=document.getElementById('flowers');
+const fctx=fc.getContext('2d');
+const F=[[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"#f3d25f","#fbcd5d","#fff08c","#ffef8a","#fcce5e","#e8d459",null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"#f7d559","#f3d25f","#f7f390","#f8f187","#f5d15f","#f8d158",null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"#f5d461","#f7d559","#f4a433","#f59d3b","#f4a145","#f2a344","#f49d3e","#f59f38","#fed061","#e9d18b",null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"#f8d15c","#f5d15f","#f6a242","#f4a040","#f4a040","#f4a03d","#f89e3e","#f3a042","#facf5e","#e9cf85",null,null,null,null],[null,null,null,null,null,null,"#ffcde0","#f9d1dc",null,null,"#ffcbe2",null,null,null,null,"#f8d15c","#f5d15f","#f6a242","#f4a040","#f4a040","#f59d46","#faf192","#f9f288","#f3d25e","#e9cf85",null,null,null,null],[null,null,null,null,null,null,"#ffc8de","#ffccdf",null,null,"#ffc8de",null,null,null,null,"#f8d263","#f4d264","#f1a341","#f8a23f","#eda247","#ec9f43","#f7f392","#f9f288","#f5d25e","#e8ce84",null,null,null,null],[null,null,null,null,null,null,"#fd9ec0","#f7a0c0","#ffcce0","#ffc6e0","#fd9ec0",null,null,null,null,"#fff18d","#faf290","#f4d05e","#f5d15f","#f8f292","#f7f392","#fdf090","#f9f288","#f5d25e","#e8ce84",null,null,null,null],[null,null,null,null,null,null,"#f69fbf","#fb9dbf","#ffcbdf","#ffcee6","#fb9dbf",null,null,null,null,"#f8f490","#f6f291","#f4d151","#f9cf61","#ffee88","#f9f288","#f9f288","#fffa95","#efd655","#e9d78d",null,null,null,null],[null,null,null,null,null,null,"#ce4271","#cc4371","#f7a0c0","#ff9bc1","#cb4371",null,null,null,null,null,null,"#f8d45a","#facf5f","#f8d05f","#f5d25e","#f5d25e","#eed554",null,null,null,null,null,null],[null,null,null,null,null,null,"#b0526d","#b75878","#ff98bf","#ff99bc","#b44f6d",null,null,null,null,null,null,"#e8d08a","#edd08c","#cde17e","#cfde7f","#dfd772","#d9d479",null,null,null,null,null,null],[null,null,"#a0d88f","#a0d891",null,null,null,null,"#d63e71","#b34e6c",null,null,null,null,null,null,null,null,null,"#50b879","#51b577","#a0d88d","#a6d98c",null,null,null,null,null,null],[null,null,"#54b975","#5db875","#35714b","#35714b","#397049","#2f7046","#7d9f84","#8b9783",null,null,null,null,null,null,null,null,null,"#4dba79","#50bc7e",null,null,null,null,null,null,null,null],[null,null,"#52b877","#57b47b","#277949","#277949","#2a7848","#2e7749","#4fb97b","#63aa80",null,null,null,null,null,null,null,null,null,"#4dba79","#51b67c",null,null,null,null,null,null,null,null],[null,null,"#1e7844","#2b7b48","#55b47a","#55b576","#9cd89a","#a7dda1","#4fb87d","#69a780",null,null,null,"#61aa7f","#5db17f",null,null,null,null,"#9ddb9c","#98d48e","#58b27e","#61ac83",null,null,null,null,null,null],[null,null,"#227a48","#2a7848","#52b879","#55b474","#a2d791","#a0d899","#4fb87d","#69a780",null,null,null,"#5cb380","#4dba79",null,null,null,null,"#9fd98f","#a6d795","#4abb7d","#5ab27f",null,null,null,null,null,null],[null,null,null,null,"#52b877","#54b475","#a3d691","#a1d897","#4fb87d","#69a780",null,"#63ae85","#51ba7f","#267847","#2c7a48","#6cb25c","#64b25c",null,null,"#a2d791","#9fd490","#287c4b","#277649",null,null,null,null,null,null],[null,null,null,null,"#52b877","#54b475","#a3d691","#a1d897","#4fb87d","#69a780",null,"#61af7f","#50b879","#257c47","#297946","#67af5b","#65b05b",null,null,"#a2d791","#a1da95","#267a49","#2a754a",null,null,null,null,null,null],[null,null,null,null,null,null,"#53b978","#50b977","#50b879","#50b476","#48bb7a","#217e47","#2f7747",null,null,null,null,null,null,"#50bb77","#4fb373",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,"#50b879","#53b779","#50b879","#52b879","#4dba79","#207f47","#2b7748",null,null,null,null,null,null,"#4fb979","#51b776",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,"#4dba77","#50b977","#54b679","#61b06e","#9cd994","#357640","#2d7746",null,null,"#32764d","#2b7749","#9fd98f","#9fd98c","#52b77b","#51b778",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,"#52b77b","#51bb7d","#57b372","#61b672","#9cd993","#42834d","#377149",null,null,"#38744e","#2d764b","#8fca86","#99db93","#52b77b","#51b778",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"#a0d891","#9adc9e","#2b7746",null,null,null,null,null,null,"#1e7c47","#267a46","#50b879","#52b57e",null,null,"#2a774b","#416a4a",null,null,null,null],[null,null,null,null,null,null,null,null,"#a0d891","#9adc9e","#2b7746",null,null,null,null,null,null,"#24754a","#2b784e","#4abb79","#55bd80",null,null,"#247c4a","#40674c",null,null,null,null],[null,null,null,null,null,null,null,null,"#9dd991","#9dda9f","#267a46",null,null,null,null,null,null,null,null,"#4dba77","#50b675","#a3d78d","#a1d992",null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"#9cd99e","#97d5a2","#3d6c4c",null,null,null,null,null,null,null,null,"#4dba77","#50b675","#a3d78d","#a1d992",null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"#277949","#3c6d4d",null,null,null,null,null,null,null,null,null,"#4fb977","#51b579","#a2d88c","#a4d794",null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"#277949","#3b6c4c",null,null,null,null,null,null,null,null,null,"#217b45","#2d814d",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,"#2e7646","#44684e",null,null,null,null,null,null,null,null,null,"#237b48","#2a7949",null,null,null,null,null,null,null,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]];
+for(let y=0;y<29;y++)for(let x=0;x<29;x++)if(F[y][x]){fctx.fillStyle=F[y][x];fctx.fillRect(x,y,1,1);}
+
+// Pixel sparkles
+const sc=document.getElementById('sc');
+const sctx=sc.getContext('2d');
+const COLS=['#f06090','#f4c040','#c878d8','#78c8f8','#a0d890','#f090c0','#fff0a0','#f8a0c0'];
+const SHAPES=[
+  ()=>[[0,0],[1,0],[-1,0],[0,1],[0,-1]],
+  ()=>[[0,-1],[1,0],[0,1],[-1,0],[0,0]],
+  ()=>[[0,0],[1,0],[0,1],[1,1]],
+  ()=>[[0,0]],
+  ()=>[[0,0],[2,0],[-2,0],[0,2],[0,-2],[1,1],[-1,1],[1,-1],[-1,-1]],
+];
+let sparks=[];
+function resize(){sc.width=window.innerWidth;sc.height=window.innerHeight;}
+function spawn(){
+  const angle=Math.random()*Math.PI*2,speed=.3+Math.random()*.7,maxLife=60+Math.random()*80;
+  sparks.push({x:Math.random()*sc.width,y:Math.random()*sc.height,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-.4,life:0,maxLife,color:COLS[Math.floor(Math.random()*COLS.length)],shapeIdx:Math.floor(Math.random()*SHAPES.length),px:2+Math.floor(Math.random()*2)});
+}
+function tick(){
+  sctx.clearRect(0,0,sc.width,sc.height);
+  sparks=sparks.filter(s=>s.life<s.maxLife);
+  while(sparks.length<40)spawn();
+  for(const s of sparks){
+    s.life++;s.x+=s.vx;s.y+=s.vy;s.vy+=.01;
+    if(s.x<-10)s.x=sc.width+10;if(s.x>sc.width+10)s.x=-10;
+    if(s.y>sc.height+10)s.y=-10;
+    const t=s.life/s.maxLife;
+    let a=t<.2?t/.2:t>.7?1-(t-.7)/.3:1;
+    a*=.6+.4*Math.sin(s.life*.4);
+    const shape=SHAPES[s.shapeIdx]();
+    sctx.fillStyle=s.color;sctx.globalAlpha=a;
+    for(const[dx,dy]of shape)sctx.fillRect(Math.round(s.x)+dx*s.px,Math.round(s.y)+dy*s.px,s.px,s.px);
+    sctx.globalAlpha=1;
+  }
+  requestAnimationFrame(tick);
+}
+resize();window.addEventListener('resize',resize);
+for(let i=0;i<40;i++)spawn();
+tick();
+</script>
+</body></html>
